@@ -19,8 +19,11 @@ const Details = () => {
   };
 
   useEffect(() => {
-    updateShouts();
-  }, [namePathParam]); //re-run IF name changes
+    getPersonShoutouts(namePathParam).then((res) => {
+      //.then is for async could also do const res = await
+      setPersonShoutouts(res);
+    });
+  }, [namePathParam]); //re-run IF name changes),
 
   return (
     <div className="Details">
