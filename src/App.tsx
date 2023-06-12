@@ -7,8 +7,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import ShoutoutList from "./components/ShoutoutList";
-import FilteredList from "./components/FilteredList";
 import Details from "./components/Details";
 
 function App() {

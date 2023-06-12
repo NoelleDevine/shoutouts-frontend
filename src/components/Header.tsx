@@ -22,7 +22,7 @@ const Header = () => {
             <img
               className="userImage"
               src={user?.photoURL || ""}
-              alt="profile image"
+              alt="profile"
             />
           </p>
         </div>
