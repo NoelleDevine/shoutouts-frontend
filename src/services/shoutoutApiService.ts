@@ -8,6 +8,11 @@ export const getAllShoutouts = async (): Promise<Shoutout[]> => {
   return (await axios.get(`${baseUrl}/shoutouts`)).data;
 };
 
+export const getPersonShoutouts = async (name: string): Promise<Shoutout[]> => {
+  //todo
+  return (await axios.get(`${baseUrl}/shoutouts/${name}`)).data;
+};
+
 export const addShoutout = async (newShout: Shoutout): Promise<Shoutout> => {
-  return (await axios.post(`${baseUrl}`, newShout)).data;
+  return (await axios.post(`${baseUrl}/shoutouts`, newShout)).data;
 };

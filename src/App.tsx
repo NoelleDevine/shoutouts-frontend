@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import NewSOForm from "./components/NewSOForm";
+import Main from "./components/Main";
+import Header from "./components/Header";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import ShoutoutList from "./components/ShoutoutList";
-import Shoutout from "./models/Shoutout";
-import { getAllShoutouts } from "./services/shoutoutApiService";
+import FilteredList from "./components/FilteredList";
+import Details from "./components/Details";
 
 function App() {
-  const [allShoutouts, setAllShoutouts] = useState<Shoutout[]>([]);
-
-  useEffect(() => {
-    //call api, set shoutouts
-    getAllShoutouts().then((res) => {
-      //.then is for async could also do const res = await getallProducts();
-      setAllShoutouts(res);
-    });
-  }, []);
-
   return (
     <div className="App">
-      <NewSOForm />
-      <ShoutoutList listofShouts={allShoutouts} />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/user/:name" element={<Details />} />{" "}
+          {/*: is not part of path*/}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

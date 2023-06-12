@@ -4,19 +4,19 @@ import SingleShoutout from "./SingleShoutout";
 
 interface Props {
   listofShouts: Shoutout[];
+  name?: string;
 }
 
-const ShoutoutList = ({ listofShouts }: Props) => {
+const ShoutoutList = ({ listofShouts, name }: Props) => {
   return (
     <>
-      <h1>All Shout Outs</h1>
+      {name ? <h1>Shout outs from {name} </h1> : <h1>All Shout Outs</h1>}
       <ul className="ShoutoutList">
         {listofShouts.map((shout) => (
           <SingleShoutout key={shout._id} shout={shout} />
         ))}
       </ul>
     </>
-    //map here to single
   );
 };
 

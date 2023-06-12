@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Shoutout from "../models/Shoutout";
 import "./SingleShoutout.css";
 
@@ -10,7 +11,12 @@ const SingleShoutout = ({ shout }: Props) => {
     <div className="SingleShoutoutBox">
       <li className="SingleShoutoutListItem">
         <h3>Shout out to {shout.to}</h3>
-        <h4>-from {shout.from}</h4>
+        <h4>
+          -from{" "}
+          <Link to={`/user/${encodeURIComponent(shout.from)}`}>
+            {shout.from}
+          </Link>
+        </h4>
         <p>{shout.text}</p>
       </li>
     </div>

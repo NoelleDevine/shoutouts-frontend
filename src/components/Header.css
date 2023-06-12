@@ -1,0 +1,10 @@
+.userImage {
+  height: 25px;
+  margin: 3px;
+}
+
+.title {
+  font-size: larger;
+  color: black;
+  text-decoration: none;
+}

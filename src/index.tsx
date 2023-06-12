@@ -1,15 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import AuthContextProvider from "./context/AuthContextProvider";
+import ShoutContextProvider from "./context/ShoutContextProvider";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <ShoutContextProvider>
+        <App />
+      </ShoutContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>
 );
 
